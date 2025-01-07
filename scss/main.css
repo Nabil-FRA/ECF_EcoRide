@@ -12136,4 +12136,86 @@ img {
   height: auto; /* Préserve les proportions de l'image */
   border-radius: 10px; /* Coins arrondis pour l'image */
   filter: drop-shadow(2px 4px 4px #0d0d0d);
+}
+
+.hero-scene {
+  background-color: rgba(243, 239, 129, 0.7); /* Couleur avec transparence */
+  padding: 50px 20px;
+}
+
+.hero-scene h1, .hero-scene .h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  font-weight: bold;
+  color: #0c0c0c;
+}
+
+/* Conteneur principal pour le formulaire */
+.container-connexion, .container-Validation, .container-compte, .container-contact {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Style des champs de formulaire */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.mb-3 {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: #4caf50;
+  outline: none;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+/* Bouton de connexion */
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #388e3c;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .hero-scene h1, .hero-scene .h1 {
+    font-size: 2rem;
+  }
+  .container-connexion {
+    padding: 15px;
+    margin: 20px;
+  }
 }/*# sourceMappingURL=main.css.map */

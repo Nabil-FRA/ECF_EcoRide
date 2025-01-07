@@ -1,0 +1,78 @@
+<div class="hero-scene text-center text-white">
+    <div class="hero-scene-content">
+        <h1>Espace Utilisateur</h1>
+    </div>
+</div>
+
+<div class="container-compte">
+        <form id="user-role-form">
+            <h2>Sélectionnez votre rôle :</h2>
+            <div class="role-selection">
+                <label>
+                    <input type="radio" name="role" value="chauffeur" required>
+                    Chauffeur
+                </label>
+                <label>
+                    <input type="radio" name="role" value="passager">
+                    Passager
+                </label>
+                <label>
+                    <input type="radio" name="role" value="les-deux">
+                    Chauffeur et Passager
+                </label>
+            </div>
+
+            <div id="chauffeur-form" style="display: none;">
+                <h3>Informations Chauffeur</h3>
+                <div class="mb-3">
+                    <label for="licensePlate">Plaque d’immatriculation :</label>
+                    <input type="text" id="licensePlate" name="licensePlate" class="form-control" placeholder="Exemple : AA-123-BB">
+                </div>
+                <div class="mb-3">
+                    <label for="registrationDate">Date de première immatriculation :</label>
+                    <input type="date" id="registrationDate" name="registrationDate" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="vehicleModel">Modèle :</label>
+                    <input type="text" id="vehicleModel" name="vehicleModel" class="form-control" placeholder="Exemple : Clio">
+                </div>
+                <div class="mb-3">
+                    <label for="vehicleColor">Couleur :</label>
+                    <input type="text" id="vehicleColor" name="vehicleColor" class="form-control" placeholder="Exemple : Rouge">
+                </div>
+                <div class="mb-3">
+                    <label for="vehicleBrand">Marque :</label>
+                    <input type="text" id="vehicleBrand" name="vehicleBrand" class="form-control" placeholder="Exemple : Renault">
+                </div>
+                <div class="mb-3">
+                    <label for="availableSeats">Nombre de places disponibles :</label>
+                    <input type="number" id="availableSeats" name="availableSeats" class="form-control" min="1" placeholder="Exemple : 4">
+                </div>
+                <div class="mb-3">
+                    <h4>Préférences :</h4>
+                    <label>
+                        <input type="checkbox" name="preferences" value="fumeur">
+                        Accepte les fumeurs
+                    </label>
+                    <label>
+                        <input type="checkbox" name="preferences" value="non-fumeur">
+                        N’accepte pas les fumeurs
+                    </label>
+                    <label>
+                        <input type="checkbox" name="preferences" value="animal">
+                        Accepte les animaux
+                    </label>
+                    <label>
+                        <input type="checkbox" name="preferences" value="pas-animal">
+                        N’accepte pas les animaux
+                    </label>
+                    <div class="mb-3">
+                        <label for="customPreference">Ajouter une préférence personnalisée :</label>
+                        <input type="text" id="customPreference" name="customPreference" class="form-control" placeholder="Exemple : Pas de musique forte">
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Valider</button>
+        </form>
+</div>
