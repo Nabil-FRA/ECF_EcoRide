@@ -27,6 +27,12 @@ function isValidEmail(email) {
     return emailRegex.test(email);
 }
 
+// Fonction pour valider le mot de passe (8 caractères minimum, complexité)
+function isValidPassword(password) {
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return passwordRegex.test(password);
+}
+
 // Ajouter un écouteur d'événement pour la validation en temps réel (keyup)
 inputs.forEach((input) => {
     input.addEventListener('keyup', () => {
@@ -43,7 +49,18 @@ inputs.forEach((input) => {
             }
         }
 
-        // Validation spécifique pour les mots de passe
+        // Validation spécifique pour le mot de passe
+        if (input.id === 'PasswordInput') {
+            if (input.value.trim() && !isValidPassword(input.value)) {
+                input.classList.remove("is-valid");
+                input.classList.add("is-invalid");
+            } else {
+                input.classList.add("is-valid");
+                input.classList.remove("is-invalid");
+            }
+        }
+
+        // Validation spécifique pour la confirmation de mot de passe
         if (input.id === 'ValidatePasswordInput') {
             const passwordInput = document.getElementById('PasswordInput');
             if (input.value !== passwordInput.value) {
@@ -80,8 +97,16 @@ form.addEventListener('submit', (event) => {
         isFormValid = false;
     }
 
-    // Validation spécifique pour les mots de passe
+    // Validation spécifique pour le mot de passe
     const passwordInput = document.getElementById('PasswordInput');
+    if (passwordInput.value.trim() && !isValidPassword(passwordInput.value)) {
+        passwordInput.classList.remove("is-valid");
+        passwordInput.classList.add("is-invalid");
+        alert("Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.");
+        isFormValid = false;
+    }
+
+    // Validation spécifique pour les mots de passe
     const validatePasswordInput = document.getElementById('ValidatePasswordInput');
     if (passwordInput.value !== validatePasswordInput.value) {
         validatePasswordInput.classList.remove("is-valid");
@@ -96,3 +121,4 @@ form.addEventListener('submit', (event) => {
         form.submit(); // Soumet le formulaire
     }
 });
+
