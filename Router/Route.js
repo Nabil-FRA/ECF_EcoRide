@@ -4,5 +4,6 @@ export default class Route {
       this.title = title;
       this.pathHtml = pathHtml;
       this.pathJS = pathJS;
+      this.authorize= this.authorize;
     }
 }

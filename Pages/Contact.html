@@ -1,20 +1,30 @@
 
-<div class="hero-scene text-center text-white"> 
-    <div class="hero-scene-content"> 
-        <h1> Contactez-nous</h1>
-    </div>
-</div>
 <div class="container-contact">
-    <form action="/submit-contact" method="post">
-        <label for="name">Nom:</label>
-        <input type="text" id="name" name="name" placeholder="Votre nom" required>
+    <form id="contactForm" novalidate>
+        <div class="mb-3">
+            <label for="Nameinput" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="Nameinput" required>
+            <div class="invalid-feedback">Veuillez entrer votre nom.</div>
+        </div>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Votre adresse email" required>
+        <div class="mb-3">
+            <label for="Prenominput" class="form-label">Prénom</label>
+            <input type="text" class="form-control" id="Prenominput" required>
+            <div class="invalid-feedback">Veuillez entrer votre prénom.</div>
+        </div>
 
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="5" placeholder="Votre message" required></textarea>
+        <div class="mb-3">
+            <label for="Emailinput" class="form-label">Adresse email</label>
+            <input type="email" class="form-control" id="Emailinput" required>
+            <div class="invalid-feedback">Veuillez entrer une adresse email valide.</div>
+        </div>
 
-        <button type="submit">Send Message</button>
+        <div class="mb-3">
+            <label for="Messageinput" class="form-label">Message</label>
+            <textarea class="form-control" id="Messageinput" rows="5" required></textarea>
+            <div class="invalid-feedback">Veuillez entrer un message.</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Envoyer</button>
     </form>
 </div>
