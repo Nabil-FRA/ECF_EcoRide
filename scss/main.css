@@ -12218,4 +12218,85 @@ button:hover {
     padding: 15px;
     margin: 20px;
   }
+}
+/* Section formulaire */
+#search-form {
+  margin: 2rem auto;
+  max-width: 600px;
+}
+
+#search-form form {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+#search-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+#search-form input, #search-form button {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+#search-form button {
+  background-color: #2e7d32; /* Vert écologique */
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+
+#search-form button:hover {
+  background-color: #1b5e20;
+}
+
+/* Section résultats */
+#search-results {
+  margin: 2rem auto;
+  max-width: 800px;
+}
+
+#results-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.result-card {
+  background-color: white;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.result-card h3, .result-card .h3 {
+  margin-bottom: 0.5rem;
+}
+
+.result-card p {
+  margin: 0.5rem 0;
+}
+
+.result-card button {
+  background-color: #1b5e20;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.result-card button:hover {
+  background-color: #8d6e63;
 }/*# sourceMappingURL=main.css.map */
