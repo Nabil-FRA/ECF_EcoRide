@@ -1,15 +1,18 @@
 import Route from "./Route.js";
 
-//Définir ici vos routes
+// Définir ici vos routes
 export const allRoutes = [
-    new Route("/", "Accueil", "/pages/home.html", []),
-    new Route("/Signin", "Connexion", "/Pages/Auth/Signin.html",[], "/JAVAScript/auth/Signin.js" ),
-    new Route("/Signup", "Inscription", "/Pages/Auth/Signup.html",["disconnected"], "/JAVAScript/auth/Signup.js"),
-    new Route("/Account", "Mon compte", "/Pages/Auth/Account.html", ["client", "admin"]),
+    new Route("/", "Accueil", "/pages/home.html",[]),
+    new Route("/Signin", "Connexion", "/Pages/Auth/Signin.html",[], "/JAVAScript/auth/Signin.js"),
+    new Route("/Signup", "Inscription", "/Pages/Auth/Signup.html",[], "/JAVAScript/auth/Signup.js"),
+    new Route("/Account", "Mon compte", "/Pages/Auth/Account.html",[], "/JAVAScript/auth/Acount.js"),
+    new Route("/restpassword", "Réinitialiser-mdp", "/Pages/Auth/reset-password.html", "/JAVAScript/auth/reset-password.js"),
     new Route("/Contact", "Contact", "/Pages/Contact.html",[], "/JAVAScript/contact.js"),
-    new Route("/Motdepasse", "Motdepasse", "/Pages/Auth/mot de pass.html",[], "/JAVAScript/auth/mot de passe.js"),
+    new Route("/Motdepasse", "Mot de passe", "/Pages/Auth/mot de pass.html",[], "/JAVAScript/auth/mot de passe.js"),
     new Route("/Covoiturage", "Covoiturage", "/Pages/Covoiturage.html",[], "/JAVAScript/covoiturage.js"),
+    new Route("/Compteadmin", "Compteadmin", "/Pages/Auth/admincompte.html",[], "/JAVAScript/CRA.js"),
+    new Route("/clientinfo", "clientinfo", "/Pages/Compte_client/Client.html",[], "/JAVAScript/comptes/profiles.js"),
 ];
 
-//Le titre s'affiche comme ceci : Route.titre - websitename
+// Le titre s'affiche comme ceci : Route.titre - websitename
 export const websiteName = "EcoRide";

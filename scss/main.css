@@ -12299,4 +12299,100 @@ button:hover {
 
 .result-card button:hover {
   background-color: #8d6e63;
+}
+
+.profile-container {
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.profile-container .hero-scene {
+  background: linear-gradient(135deg, #007BFF, #0056b3);
+  padding: 30px 0;
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.profile-container .hero-scene h1, .profile-container .hero-scene .h1 {
+  margin: 0;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.profile-container #profileForm {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.profile-container #profileForm label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.profile-container #profileForm input[type=text],
+.profile-container #profileForm input[type=email],
+.profile-container #profileForm input[type=date],
+.profile-container #profileForm input[type=file],
+.profile-container #profileForm input[type=number] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.profile-container #profileForm input[type=checkbox] {
+  margin-right: 10px;
+}
+
+.profile-container #profileForm button {
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.profile-container #profileForm button:hover {
+  background-color: #0056b3;
+}
+
+.profile-container #chauffeurDetails {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+.profile-container #profileForm h3, .profile-container #profileForm .h3 {
+  margin-top: 20px;
+  color: #444;
+}
+
+@media (max-width: 600px) {
+  .profile-container #profileForm {
+    padding: 15px;
+  }
+  .profile-container #profileForm button {
+    padding: 8px;
+  }
 }/*# sourceMappingURL=main.css.map */

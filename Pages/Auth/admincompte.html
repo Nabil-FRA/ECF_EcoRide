@@ -1,0 +1,38 @@
+<div class="hero-scene text-center text-white">
+    <div class="hero-scene-content">
+        <h1>Tableau de Bord Administrateur</h1>
+    </div>
+</div>
+
+<div class="utilisateuradmin-container">
+    <!-- Section de création d'un compte employé -->
+    <section class="form-section">
+        <h2>Créer un compte employé</h2>
+        <form id="createEmployeeForm">
+            <input type="text" id="employeeName" placeholder="Nom de l'employé" required />
+            <input type="text" id="employeePrenom" placeholder="Prénom de l'employé" required />
+            <input type="email" id="employeeEmail" placeholder="Email" required />
+            <input type="password" id="employeePassword" placeholder="Mot de passe" required />
+            <button id="submitButton" type="button">Valider</button>
+        </form>
+    </section>
+
+    <!-- Section de gestion des comptes -->
+    <section class="accounts-section">
+        <h2>Gérer les comptes</h2>
+        <ul id="accountsList">
+            <!-- Liste des comptes générés dynamiquement -->
+        </ul>
+    </section>
+
+    <!-- Section des statistiques -->
+    <section class="stats-section">
+        <h2>Statistiques</h2>
+        <div class="chart-container">
+            <canvas id="covoiturageChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="creditsChart"></canvas>
+        </div>
+        <p class="total-credits">Total des crédits gagnés : <span id="totalCredits">0</span> €</p>
+    </section>
