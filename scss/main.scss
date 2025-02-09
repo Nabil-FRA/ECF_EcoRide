@@ -437,3 +437,110 @@ button:hover {
       padding: 8px;
   }
 }
+
+
+// page compte clien chauffeur:
+/* Styles généraux */
+/* Centrage parfait du conteneur */
+/* Centrage parfait avec Flexbox */
+/* 🌍 Centrage parfait avec flexbox et espacement du footer */
+.chauffeur_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  /* Centre verticalement */
+  
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  text-align: left;
+
+  min-height: calc(100vh - 100px); /* Ajustement pour ne pas toucher le footer */
+  margin: auto; /* Centre horizontalement */
+}
+
+/* 📌 Correction des checkboxes */
+.chauffeur_container .checkbox-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px; /* Espacement entre les checkboxes */
+  width: 100%;
+  margin-top: 10px;
+}
+
+.chauffeur_container .checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: normal;
+}
+
+/* 🎯 Checkboxes */
+.chauffeur_container input[type="checkbox"] {
+  transform: scale(1.2);
+  margin-right: 10px;
+}
+
+/* 🔘 Boutons stylisés */
+.chauffeur_container button {
+  background: #27ae60;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.chauffeur_container button:hover {
+  background: #2ecc71;
+  transform: scale(1.05);
+}
+
+/* 📋 Liste des préférences personnalisées */
+.chauffeur_container #customPreferenceList {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+  width: 100%;
+}
+
+/* ❌ Correction du chevauchement du footer */
+footer.footer {
+  padding: 15px;
+  position: relative; /* Il ne chevauche plus le formulaire */
+  bottom: 0;
+  width: 100%;
+  background: #2e7d32;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+/* 📱 Responsive uniquement pour `.chauffeur_container` */
+@media (max-width: 600px) {
+  .chauffeur_container {
+      width: 95%;
+      padding: 20px;
+  }
+
+  .chauffeur_container label {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .chauffeur_container input[type="text"],
+  .chauffeur_container input[type="date"] {
+      width: 100%;
+      margin-left: 0;
+      margin-top: 5px;
+  }
+}

@@ -55,6 +55,30 @@ btnSignin.addEventListener("click", async function () {
 
         // Stocker le token et le rôle dans localStorage
         localStorage.setItem("accessToken", result.apiToken);
+        // Stocker le token et le rôle dans localStorage
+    localStorage.setItem("accessToken", result.apiToken);
+    localStorage.setItem("role", result.role);
+    localStorage.setItem("userEmail", result.email);
+    document.cookie = `role=${result.role}; path=/;`;
+    
+
+
+    console.log("🚀 Token reçu après connexion :", result.apiToken);
+    console.log("🔐 Rôle récupéré depuis localStorage :", localStorage.getItem("role"));
+    console.log("📧 Email stocké dans localStorage :", localStorage.getItem("userEmail"));
+
+    // ✅ Vérification si le token est bien stocké
+    const storedToken = localStorage.getItem("accessToken");
+    if (!storedToken) {
+    console.error("❌ ERREUR : Le token n'a pas été enregistré dans localStorage !");
+    afficherErreur("Erreur interne : Token non enregistré.");
+    } else {
+    console.log("✅ Token correctement stocké :", storedToken);
+    }
+
+    // ✅ Vérification du token avec celui en base de données
+    console.log("🕵️ Vérifie si le token correspond à celui en base de données...");
+
         localStorage.setItem("role", result.role);
         document.cookie = `role=${result.role}; path=/;`;
         console.log("Rôle récupéré depuis localStorage :", localStorage.getItem("role"));

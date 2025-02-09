@@ -1,0 +1,57 @@
+<div class="hero-scene text-center text-white"> 
+  <div class="hero-scene-content"> 
+    <h1>Êtes-vous Chauffeur, Passager ou les deux ?</h1>
+  </div>
+</div>
+
+<div class="container">
+    <!-- Choix du statut -->
+    <div class="form-group radio-group">
+      <label><input type="radio" name="statut" value="chauffeur"> Chauffeur</label>
+      <label><input type="radio" name="statut" value="passager" checked> Passager</label>
+      <label><input type="radio" name="statut" value="both"> Les deux</label>
+    </div>
+
+    <!-- Bloc véhicule caché par défaut -->
+    <div id="vehicule-block" style="display: none;">
+      <h2>Informations Véhicule</h2>
+      <label>Immatriculation</label><input type="text" id="immatriculation"><br>
+      <label>Date 1ère immat.</label><input type="date" id="datePremiereImmat"><br>
+      <label>Marque</label><input type="text" id="marque"><br>
+      <label>Modèle</label><input type="text" id="modele"><br>
+      <label for="energie">Énergie</label>
+      <select id="energie">
+        <option value="Essence">Essence</option>
+        <option value="Diesel">Diesel</option>
+        <option value="Électrique">Électrique</option>
+        <option value="Hybride">Hybride</option>
+        <option value="GPL">GPL</option>
+        <option value="Hydrogène">Hydrogène</option>
+      </select><br>
+      <label>Couleur</label><input type="text" id="couleur"><br>
+
+      <h2>Préférences</h2>
+      <label><input type="checkbox" id="fumeur"> Fumeur autorisé</label>
+      <label><input type="checkbox" id="animaux"> Animaux acceptés</label>
+
+      <!-- ✅ Bloc pour les préférences personnalisées -->
+      <div class="custom-preferences">
+        <h3>Préférences personnalisées</h3>
+        <div>
+          <label for="customPref">Propriété :</label>
+          <input type="text" id="customPref" placeholder="Ex: Musique">
+        </div>
+        <div>
+          <label for="customPrefValue">Valeur :</label>
+          <input type="text" id="customPrefValue" placeholder="Ex: Classique">
+        </div>
+        <button type="button" id="btnAddPref">Ajouter</button>
+      </div>
+
+      <!-- ✅ Liste des préférences ajoutées -->
+      <ul id="customPrefList"></ul>
+    </div>
+
+    <!-- Bouton Valider bien positionné -->
+    <button id="btnSubmit">Valider</button>
+</div>
