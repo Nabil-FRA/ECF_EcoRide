@@ -11,9 +11,18 @@ function loadAdminFeatures() {
 const route404 = new Route("404", "Page introuvable", "/pages/404.html", []);
 
 const getRouteByUrl = (url) => {
-    let currentRoute = allRoutes.find(route => route.url === url);
+    let currentRoute = allRoutes.find(route => {
+        // Vérifier si la route contient un paramètre dynamique (ex: "/detailcovoiturage/:id")
+        if (route.url.includes(":id")) {
+            const baseRoute = route.url.split("/:")[0]; // Récupère "/detailcovoiturage"
+            return url.startsWith(baseRoute); // Vérifie si l'URL commence bien par "/detailcovoiturage"
+        }
+        return route.url === url; // Vérification normale pour les autres routes
+    });
+
     return currentRoute ? currentRoute : route404;
 };
+
 
 function getRole() {
     let role = localStorage.getItem("role");
@@ -83,7 +92,19 @@ const LoadContentPage = async () => {
     console.log("🔄 Début du chargement de la page...");
 
     const path = window.location.pathname;
-    const actualRoute = getRouteByUrl(path);
+    const actualRoute = getRouteByUrl(path); // Déclaration avant toute utilisation !
+
+    console.log("🌍 URL détectée :", path);
+    console.log("📌 Route trouvée :", actualRoute);
+
+    // 🔍 Extraction de l'ID s'il y en a un dans l'URL
+    let covoiturageId = null;
+    if (actualRoute.url.includes(":id")) { // Maintenant, actualRoute est bien défini
+        const pathParts = window.location.pathname.split("/");
+        covoiturageId = pathParts[pathParts.length - 1]; // Récupère l'ID à la fin de l'URL
+        console.log(`🆔 ID du covoiturage détecté : ${covoiturageId}`);
+    }
+
     console.log("🌍 URL détectée :", path);
     console.log("📌 Route trouvée :", actualRoute);
 
@@ -124,6 +145,9 @@ const LoadContentPage = async () => {
         scriptTag.setAttribute("src", actualRoute.pathJS);
         scriptTag.onload = () => console.log(`✅ ${actualRoute.pathJS} chargé avec succès !`);
         scriptTag.onerror = () => console.error(`❌ Erreur lors du chargement de ${actualRoute.pathJS}`);
+        if (covoiturageId) {
+            scriptTag.setAttribute("data-covoiturage-id", covoiturageId);
+        }
         document.body.appendChild(scriptTag);
     }
     
