@@ -12675,4 +12675,66 @@ button:hover {
   margin: 5px 0;
   border-radius: 8px;
   font-size: 16px;
+}
+
+.saisirvoyage-container {
+  /* Titre */
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  /* Style des labels et inputs */
+  /* Style des boutons */
+  /* Style du lien d'ajout de voiture */
+}
+.saisirvoyage-container .saisirvoyage-container h2, .saisirvoyage-container .saisirvoyage-container .h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+.saisirvoyage-container label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #555;
+}
+.saisirvoyage-container input, .saisirvoyage-container select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.saisirvoyage-container button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(to right, #4CAF50, #2E8B57);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+.saisirvoyage-container button:hover {
+  background: linear-gradient(to right, #2E8B57, #4CAF50);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+.saisirvoyage-container .saisirvoyage-container p {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #777;
+}
+.saisirvoyage-container .saisirvoyage-container a {
+  color: #2E8B57;
+  text-decoration: none;
+  font-weight: bold;
+}
+.saisirvoyage-container .saisirvoyage-container a:hover {
+  text-decoration: underline;
 }/*# sourceMappingURL=main.css.map */
