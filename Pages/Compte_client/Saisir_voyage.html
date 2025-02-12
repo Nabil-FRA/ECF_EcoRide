@@ -1,0 +1,45 @@
+<div class="saisirvoyage-container">
+    <h2>Créer un Covoiturage</h2>
+    <form id="covoiturage-form">
+        <label for="lieuDepart">Lieu de départ :</label>
+        <input type="text" id="lieuDepart" name="lieuDepart" required>
+
+        <label for="lieuArrivee">Lieu d'arrivée :</label>
+        <input type="text" id="lieuArrivee" name="lieuArrivee" required>
+
+        <label for="prixPersonne">Prix par personne (€) :</label>
+        <input type="number" id="prixPersonne" name="prixPersonne" required>
+
+        <label for="dateDepart">Date de départ :</label>
+        <input type="date" id="dateDepart" name="dateDepart" required>
+
+        <label for="heureDepart">Heure de départ :</label>
+        <input type="time" id="heureDepart" name="heureDepart" required>
+
+        <label for="dateArrivee">Date d'arrivée :</label>
+        <input type="date" id="dateArrivee" name="dateArrivee" required>
+
+        <label for="heureArrivee">Heure d'arrivée :</label>
+        <input type="time" id="heureArrivee" name="heureArrivee" required>
+
+        <label for="nbPlace">Nombre de places disponibles :</label>
+        <input type="number" id="nbPlace" name="nbPlace" required>
+
+        <label for="statut">Statut :</label>
+        <select id="statut" name="statut" required>
+            <option value="Disponible">Disponible</option>
+            <option value="En attente">En attente</option>
+            <option value="Complet">Complet</option>
+            <option value="Annulé">Annulé</option>
+        </select>
+
+        <label for="voitureId">Sélectionner une voiture :</label>
+        <select id="voitureId" name="voitureId" required>
+            <!-- Options remplies dynamiquement via JavaScript -->
+        </select>
+
+        <p>Vous n'avez pas encore enregistré de voiture ? <a href="/createcovoiturage">Ajoutez-en une ici</a>.</p>
+
+        <button type="submit">Créer</button>
+    </form>
+</div>
