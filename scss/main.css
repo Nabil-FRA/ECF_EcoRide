@@ -12737,4 +12737,88 @@ button:hover {
 }
 .saisirvoyage-container .saisirvoyage-container a:hover {
   text-decoration: underline;
+}
+
+#filter-section {
+  background-color: #e8f5e9; /* Vert clair pour l'aspect écologique */
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0px 4px 8px rgba(0, 128, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  font-family: "Arial", sans-serif;
+}
+
+#filter-section h2, #filter-section .h2 {
+  color: #2e7d32; /* Vert foncé naturel */
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#filter-form div {
+  margin-bottom: 15px;
+}
+
+#filter-form label {
+  color: #388e3c;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+#filter-form input {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #a5d6a7;
+  transition: 0.3s;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#filter-form input:focus {
+  border-color: #2e7d32;
+  box-shadow: 0px 0px 8px rgba(46, 125, 50, 0.5);
+}
+
+#filter-form input[type=checkbox] {
+  transform: scale(1.2);
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+#filter-form button {
+  padding: 12px 25px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  box-shadow: 0px 4px 8px rgba(0, 128, 0, 0.3);
+  width: 100%;
+}
+
+#filter-form button:hover {
+  background-color: #388e3c;
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 12px rgba(0, 128, 0, 0.5);
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  #filter-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+  }
+  #filter-form button {
+    grid-column: span 2;
+  }
 }/*# sourceMappingURL=main.css.map */
