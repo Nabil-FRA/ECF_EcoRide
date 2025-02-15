@@ -12919,4 +12919,11 @@ button:hover {
 
 .suspend-btn:hover {
   background-color: #d32f2f;
+}
+
+canvas {
+  max-width: 600px;
+  max-height: 400px;
+  margin: 40px auto;
+  display: block;
 }/*# sourceMappingURL=main.css.map */
