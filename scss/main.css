@@ -12821,4 +12821,59 @@ button:hover {
   #filter-form button {
     grid-column: span 2;
   }
+}
+.utilisateuradmin-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+.utilisateuradmin-container .createEmployee {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  margin-top: 2rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.utilisateuradmin-container .createEmployee:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.utilisateuradmin-container .createEmployee h2, .utilisateuradmin-container .createEmployee .h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333333;
+  font-size: 1.8rem;
+}
+.utilisateuradmin-container #createEmployeeForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.utilisateuradmin-container #createEmployeeForm input {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+}
+.utilisateuradmin-container #createEmployeeForm input:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+.utilisateuradmin-container #submitButton {
+  padding: 0.75rem;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+.utilisateuradmin-container #submitButton:hover {
+  transform: scale(1.05);
 }/*# sourceMappingURL=main.css.map */
