@@ -12924,6 +12924,6 @@ button:hover {
 canvas {
   max-width: 600px;
   max-height: 400px;
-  margin: 40px auto;
-  display: block;
+  display: flex;
+  flex-direction: column;
 }/*# sourceMappingURL=main.css.map */
