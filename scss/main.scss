@@ -914,3 +914,118 @@ button:hover {
       grid-column: span 2;
   }
 }
+
+//--------------------------------------
+
+.utilisateuradmin-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  
+
+.createEmployee {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 500px;
+  margin-top: 2rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.createEmployee:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.createEmployee h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333333;
+  font-size: 1.8rem;
+}
+
+#createEmployeeForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#createEmployeeForm input {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+}
+
+#createEmployeeForm input:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+#submitButton {
+  padding: 0.75rem;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+#submitButton:hover {
+  transform: scale(1.05);
+}
+}
+
+//-----------------------------------------
+#user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+#user-table th, #user-table td {
+  border: 1px solid #e0e0e0;
+  padding: 14px;
+  text-align: left;
+}
+#user-table th {
+  background-color: #2196f3;
+  color: #fff;
+  font-weight: bold;
+}
+#user-table tr:nth-child(even) {
+  background-color: #f0f8ff;
+}
+#user-table tr:hover {
+  background-color: #e3f2fd;
+}
+.suspend-btn {
+  background-color: #ff5252;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.suspend-btn:hover {
+  background-color: #d32f2f;
+}
+
+
+
+//-----------------
+canvas {
+  max-width: 600px;
+  max-height: 400px;
+  display: flex;
+  flex-direction: column;
+}
