@@ -10,15 +10,23 @@ const customPrefValueInput = document.getElementById('customPrefValue');
 const customPrefList = document.getElementById('customPrefList');
 const fumeurCheckbox = document.getElementById('fumeur');
 const animauxCheckbox = document.getElementById('animaux');
+const voyageLink = document.getElementById('voyage-link');
 
-// ✅ Mise à jour de l'affichage en fonction du statut sélectionné
+// ✅ Fonction pour mettre à jour l'affichage du bloc véhicule et du lien "Saisir un voyage"
 function updateVehiculeBlock() {
     const statut = document.querySelector('input[name="statut"]:checked')?.value || "passager";
     vehiculeBlock.style.display = (statut === 'chauffeur' || statut === 'both') ? 'block' : 'none';
+
     console.log(`🔄 Changement de statut : ${statut}`);
+
+    // ✅ Afficher ou masquer le lien "Saisir un voyage"
+    if (voyageLink) {
+        voyageLink.style.display = (statut === 'chauffeur' || statut === 'both') ? "block" : "none";
+        console.log((statut === 'chauffeur' || statut === 'both') ? "✅ Affichage du lien 'Saisir un voyage'" : "❌ Masquage du lien 'Saisir un voyage'");
+    }
 }
 
-// 🎯 Événements pour changer l'affichage du bloc véhicule
+// 🎯 Écouteur d'événements pour changer l'affichage en fonction du statut sélectionné
 radioButtons.forEach(rb => rb.addEventListener('change', updateVehiculeBlock));
 updateVehiculeBlock(); // Initialisation au chargement
 
@@ -39,7 +47,7 @@ btnAddPref?.addEventListener('click', () => {
     }
 });
 
-// ✅ Clic sur "Valider"
+// ✅ Gestion du clic sur "Valider"
 btnSubmit?.addEventListener('click', async () => {
     console.log("✅ Bouton Valider cliqué !");
 
@@ -109,33 +117,21 @@ btnSubmit?.addEventListener('click', async () => {
 
             console.log("🛠️ Énergie sélectionnée :", energie);
 
-            // ✅ **Préférences standards**
+            // ✅ **Préférences**
             const preferences = [];
-            if (fumeurCheckbox.checked) {
-                preferences.push({ propriete: "fumeur", valeur: "oui" });
-            }
-            if (animauxCheckbox.checked) {
-                preferences.push({ propriete: "animaux", valeur: "oui" });
-            }
+            if (fumeurCheckbox.checked) preferences.push({ propriete: "fumeur", valeur: "oui" });
+            if (animauxCheckbox.checked) preferences.push({ propriete: "animaux", valeur: "oui" });
 
             // ✅ **Ajout des préférences personnalisées**
-            const customPrefs = Array.from(customPrefList.querySelectorAll('li'));
-            customPrefs.forEach(li => {
+            customPrefList.querySelectorAll('li').forEach(li => {
                 const [propriete, valeur] = li.textContent.split(" = ");
                 preferences.push({ propriete, valeur });
             });
 
-            // 🔍 **AFFICHAGE DES PRÉFÉRENCES AVANT ENVOI**
             console.log("📋 Préférences à envoyer :", JSON.stringify(preferences));
 
             // 📌 Données à envoyer
-            const voitureData = {
-                immatriculation: immat,
-                date_premiere_immatriculation: datePremiereImmat,
-                modele,
-                couleur,
-                energie
-            };
+            const voitureData = { immatriculation: immat, date_premiere_immatriculation: datePremiereImmat, modele, couleur, energie };
 
             console.log("📤 Données envoyées (register-chauffeur) :", JSON.stringify({
                 email: userEmail,
@@ -150,22 +146,23 @@ btnSubmit?.addEventListener('click', async () => {
                     "Content-Type": "application/json",
                     "Authorization": `Bearer ${authToken}`
                 },
-                body: JSON.stringify({
-                    email: userEmail,
-                    marque,
-                    voiture: voitureData,
-                    preferences
-                })
+                body: JSON.stringify({ email: userEmail, marque, voiture: voitureData, preferences })
             });
 
-            const chauffeurData = await chauffeurResponse.json();
-            console.log("📩 Réponse API (register-chauffeur) :", chauffeurData);
+            const rawResponse = await chauffeurResponse.text();
+            console.log("📄 Réponse brute API (register-chauffeur) :", rawResponse);
 
-            if (!chauffeurResponse.ok) {
-                throw new Error(chauffeurData.message || "Erreur lors de l'enregistrement du chauffeur.");
+            try {
+                const chauffeurData = JSON.parse(rawResponse);
+                console.log("📩 Réponse API (register-chauffeur) :", chauffeurData);
+
+                if (!chauffeurResponse.ok) throw new Error(chauffeurData.message || "Erreur lors de l'enregistrement du chauffeur.");
+
+                alert("✅ Chauffeur enregistré avec succès !");
+            } catch (error) {
+                console.error("❌ Erreur JSON lors du parsing :", error);
+                alert("❌ Une erreur est survenue, réponse inattendue du serveur.");
             }
-
-            alert("✅ Chauffeur enregistré avec succès !");
         }
     } catch (error) {
         console.error("❌ Erreur API :", error);

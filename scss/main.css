@@ -12553,4 +12553,272 @@ button:hover {
 }
 .covoiturage-card .covoiturage-card p {
   margin: 5px 0;
+}
+
+/* Conteneur principal */
+.container-gvp {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  /* Style de la scène d'en-tête */
+  /* Style des choix radio */
+  /* Bloc véhicule */
+  /* Champs du formulaire */
+  /* Bouton Valider */
+  /* Bloc voyage */
+  /* Liste des préférences personnalisées */
+}
+.container-gvp .hero-scene {
+  background: linear-gradient(135deg, #2E7D32, #1B5E20);
+  padding: 50px 20px;
+  border-radius: 12px;
+  text-align: center;
+  color: white;
+}
+.container-gvp .hero-scene h1, .container-gvp .hero-scene .h1 {
+  font-size: 26px;
+  font-weight: bold;
+}
+.container-gvp .radio-group {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  padding: 10px;
+  background: #E8F5E9;
+  border-radius: 8px;
+}
+.container-gvp .radio-group label {
+  font-size: 18px;
+  font-weight: bold;
+  color: #1B5E20;
+  cursor: pointer;
+}
+.container-gvp #vehicule-block {
+  background: #FAFAFA;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+.container-gvp #vehicule-block h2, .container-gvp #vehicule-block .h2 {
+  color: #1B5E20;
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.container-gvp label {
+  font-weight: bold;
+  display: block;
+  margin: 10px 0 5px;
+  color: #1B5E20;
+}
+.container-gvp input, .container-gvp select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #A5D6A7;
+  border-radius: 6px;
+  font-size: 16px;
+}
+.container-gvp #btnSubmit {
+  width: 100%;
+  background: #2E7D32;
+  color: white;
+  font-size: 18px;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.3s;
+  font-weight: bold;
+}
+.container-gvp #btnSubmit:hover {
+  background: #1B5E20;
+}
+.container-gvp #voyage-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #E8F5E9;
+  border: 2px solid #2E7D32;
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 25px;
+  color: #1B5E20;
+}
+.container-gvp #voyage-link a {
+  color: #1B5E20;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 5px;
+}
+.container-gvp #voyage-link a:hover {
+  text-decoration: underline;
+}
+.container-gvp #customPrefList {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+  text-align: center;
+}
+.container-gvp #customPrefList li {
+  background: #C8E6C9;
+  color: #1B5E20;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.saisirvoyage-container {
+  /* Titre */
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  /* Style des labels et inputs */
+  /* Style des boutons */
+  /* Style du lien d'ajout de voiture */
+}
+.saisirvoyage-container .saisirvoyage-container h2, .saisirvoyage-container .saisirvoyage-container .h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+.saisirvoyage-container label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #555;
+}
+.saisirvoyage-container input, .saisirvoyage-container select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.saisirvoyage-container button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(to right, #4CAF50, #2E8B57);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+.saisirvoyage-container button:hover {
+  background: linear-gradient(to right, #2E8B57, #4CAF50);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+.saisirvoyage-container .saisirvoyage-container p {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #777;
+}
+.saisirvoyage-container .saisirvoyage-container a {
+  color: #2E8B57;
+  text-decoration: none;
+  font-weight: bold;
+}
+.saisirvoyage-container .saisirvoyage-container a:hover {
+  text-decoration: underline;
+}
+
+#filter-section {
+  background-color: #e8f5e9; /* Vert clair pour l'aspect écologique */
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0px 4px 8px rgba(0, 128, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  font-family: "Arial", sans-serif;
+}
+
+#filter-section h2, #filter-section .h2 {
+  color: #2e7d32; /* Vert foncé naturel */
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#filter-form div {
+  margin-bottom: 15px;
+}
+
+#filter-form label {
+  color: #388e3c;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+#filter-form input {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #a5d6a7;
+  transition: 0.3s;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#filter-form input:focus {
+  border-color: #2e7d32;
+  box-shadow: 0px 0px 8px rgba(46, 125, 50, 0.5);
+}
+
+#filter-form input[type=checkbox] {
+  transform: scale(1.2);
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+#filter-form button {
+  padding: 12px 25px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  box-shadow: 0px 4px 8px rgba(0, 128, 0, 0.3);
+  width: 100%;
+}
+
+#filter-form button:hover {
+  background-color: #388e3c;
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 12px rgba(0, 128, 0, 0.5);
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  #filter-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+  }
+  #filter-form button {
+    grid-column: span 2;
+  }
 }/*# sourceMappingURL=main.css.map */
