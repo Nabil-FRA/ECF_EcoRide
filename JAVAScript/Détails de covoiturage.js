@@ -50,3 +50,52 @@ fetch(url, {
     document.getElementById("prix").textContent = `Prix: ${result.prix} €`;
   })
   .catch((error) => console.error("Erreur lors de la récupération des détails:", error));
+
+  // JavaScript pour le bouton 'Participer' sur la page des détails de covoiturage
+
+document.getElementById('btnParticiper').addEventListener('click', function() {
+  console.log('Bouton Participer cliqué');
+  const token = localStorage.getItem('accessToken');
+  console.log('Token récupéré :', token);
+
+  const covoiturageId = scriptTag.getAttribute('data-covoiturage-id');
+  console.log('ID du covoiturage :', covoiturageId);
+
+  if (!token) {
+      console.log('Utilisateur non connecté');
+      alert('Vous devez être connecté pour participer !');
+      window.location.href = '/Signin';
+      return;
+  }
+
+  if (confirm('Voulez-vous vraiment utiliser 2 crédits pour participer à ce covoiturage ?')) {
+      console.log('Confirmation acceptée');
+      const requestOptions = {
+          method: "POST",
+          headers: {
+              'Authorization': `Bearer ${token}`,
+              'Content-Type': 'application/json'
+          },
+          redirect: 'follow'
+      };
+
+      console.log('Envoi de la requête fetch...');
+      fetch(`http://127.0.0.1:8000/api/covoiturage/${covoiturageId}/participer?confirm=true`, requestOptions)
+          .then(response => {
+              console.log('Réponse reçue :', response);
+              return response.json();
+          })
+          .then(result => {
+              console.log('Résultat JSON :', result);
+              if (result.message.includes('confirmée')) {
+                  alert('Participation réussie !');
+                  window.location.reload();
+              } else {
+                  alert(result.message);
+              }
+          })
+          .catch(error => console.error('Erreur lors de la requête fetch :', error));
+  } else {
+      console.log('Confirmation annulée');
+  }
+});

@@ -66,3 +66,61 @@ async function fetchHistory() {
 
 console.log('Appel immédiat de fetchHistory...');
 fetchHistory();
+
+
+/// JavaScript pour afficher les covoiturages confirmés par l'utilisateur
+
+const authToken = localStorage.getItem('accessToken');
+
+fetch('http://127.0.0.1:8000/mongo/confirmation_covoiturage', {
+    method: 'GET',
+    headers: new Headers({
+        'Authorization': `Bearer ${authToken}`
+    }),
+    redirect: 'follow'
+})
+.then(response => response.json())
+.then(data => {
+    console.log('Données JSON reçues :', data);
+    const container = document.getElementById('historique-confirme-container');
+    container.innerHTML = '';
+
+    if (data.length === 0) {
+        container.innerHTML = '<p>Aucun covoiturage confirmé trouvé.</p>';
+        return;
+    }
+
+    const table = document.createElement('table');
+    table.border = '1';
+    table.innerHTML = `
+        <thead>
+            <tr>
+                <th>Lieu Départ</th>
+                <th>Lieu Arrivée</th>
+                <th>Date</th>
+                <th>Heure</th>
+                <th>Crédits Utilisés</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    `;
+
+    const tbody = table.querySelector('tbody');
+    data.forEach((item, index) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>${item.covoiturage.lieuDepart}</td>
+            <td>${item.covoiturage.lieuArrivee}</td>
+            <td>${item.covoiturage.dateDepart}</td>
+            <td>${item.covoiturage.heureDepart}</td>
+            <td>${item.creditsUtilises}</td>
+        `;
+        tbody.appendChild(tr);
+    });
+
+    container.appendChild(table);
+})
+.catch(error => {
+    console.error('Erreur lors de la récupération de l\'historique :', error);
+    document.getElementById('historique-confirme-container').innerHTML = '<p>Erreur de chargement.</p>';
+});
