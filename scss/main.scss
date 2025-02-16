@@ -28,7 +28,6 @@ img {
     object-fit: cover;       /* S'assure que l'image remplit l'espace disponible sans déformation */
     max-height: 50vh;       /* Limite la hauteur à 100% de la hauteur de la fenêtre */
   }
-
   .search-section-container {
     padding: 20px;
     background-color: #eaf9e3; /* Vert très clair pour la section */
@@ -36,30 +35,43 @@ img {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
-.search-bar {
+  .search-bar {
     background-color: #8fd35e; /* Vert clair */
     border-radius: 12px;
     padding: 15px 20px;
+  
+    /* Mise en page horizontale */
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
+  
+    /* Empêche le retour à la ligne */
+    flex-wrap: nowrap;
+  
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   
-.search-section {
+  .search-section {
     display: flex;
     align-items: center;
     gap: 10px;
-    flex: 1;
+    flex: 1; /* Chaque "section" prend une part égale de l'espace */
   }
   
-.search-section i {
+  .search-field {
+    /* Label (strong) au-dessus, input en dessous */
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  
+  .search-section i {
     font-size: 18px;
     color: #333;
   }
   
-.search-section input {
+  .search-section input {
     border: none;
     background: transparent;
     outline: none;
@@ -68,13 +80,13 @@ img {
     width: 100%;
   }
   
-.separator {
+  .separator {
     width: 1px;
     height: 40px;
     background-color: #333;
   }
   
-.search-button {
+  .search-button {
     background-color: white;
     border: none;
     border-radius: 50%;
@@ -83,28 +95,27 @@ img {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
   
-.search-button i {
+  .search-button i {
     font-size: 18px;
     color: #8fd35e;
   }
   
-.date-input {
+  .date-input {
     display: flex;
     align-items: center;
     gap: 5px;
   }
   
-.date-input select,
-.date-input input {
+  .date-input .search-field {
+    flex-direction: column;
+  }
+  
+  .date-input input {
     border: none;
     background: transparent;
     outline: none;
     font-size: 14px;
     color: #333;
-  }
-  
-.date-input select {
-    cursor: pointer;
   }
 
   .about-section {
@@ -133,8 +144,8 @@ img {
 
 .about-section {
     font-size: 30px;
-}
-
+} 
+//----------------------------
 
 .eco-text-section { 
     display: flex;

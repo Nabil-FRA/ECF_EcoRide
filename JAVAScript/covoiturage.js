@@ -1,5 +1,25 @@
 console.log("🚀 Fichier covoiturage.js bien chargé !");
+//--------------------------------------------------------------------------------------------------------
+// 🆕 Lecture des paramètres GET et soumission automatique sans DOMContentLoaded
 
+const params = new URLSearchParams(window.location.search);
+const depart = params.get('depart');
+const arrivee = params.get('arrivee');
+const date = params.get('date');
+
+if (depart && arrivee && date) {
+    console.log("🔍 Paramètres reçus :", { depart, arrivee, date });
+
+    // Remplir automatiquement les champs
+    document.getElementById("depart").value = depart;
+    document.getElementById("arrivee").value = arrivee;
+    document.getElementById("date").value = date;
+
+    // Ne pas soumettre automatiquement ici
+    console.log("📋 Champs remplis automatiquement. Attente de la soumission manuelle...");
+}
+
+//----------------------------------------------------------------------------------------
 // 🌍 Vérification de l'état du document
 if (document.readyState === "complete" || document.readyState === "interactive") {
     console.log("✅ DOM était déjà chargé, exécution immédiate !");
