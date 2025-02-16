@@ -16,7 +16,8 @@ export const allRoutes = [
     new Route("/detailcovoiturage/:id", "Détail Covoiturage", "/Pages/Détail de covoiturage.html", [], "/JAVAScript/Détails de covoiturage.js"),
     new Route("/saisirvoyage", "saisirvoyage", "/Pages/Compte_client/Saisir_voyage.html", [], "/JAVAScript/comptes/saisirvoyage.js"),
     new Route("/CreateEMP", "CreateEMP", "/Pages/Auth/Gerer_les_comptes_utilisateur.html", [], "/JAVAScript/comptes/Gerer_les_comptes_utilisateur.js"),
-    new Route("/stat", "stat", "/Pages/Compte_client/statistique_EcoRide.html", [], "/JAVAScript/comptes/stat.js")
+    new Route("/stat", "stat", "/Pages/Compte_client/statistique_EcoRide.html", [], "/JAVAScript/comptes/stat.js"),
+    new Route("/historique", "historique", "/Pages/Compte_client/Historique covoiturage.html", [], "/JAVAScript/comptes/Historique covoiturage.js")
 ];
 
 // Le titre s'affiche comme ceci : Route.titre - websitename
