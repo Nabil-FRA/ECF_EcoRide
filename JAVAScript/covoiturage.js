@@ -1,52 +1,54 @@
 console.log("🚀 Fichier covoiturage.js bien chargé !");
 
-// 🌍 Vérification de l'état du document
+const params = new URLSearchParams(window.location.search);
+const depart = params.get('depart');
+const arrivee = params.get('arrivee');
+const date = params.get('date');
+
+if (depart && arrivee && date) {
+    console.log("🔍 Paramètres reçus :", { depart, arrivee, date });
+    document.getElementById("depart").value = depart;
+    document.getElementById("arrivee").value = arrivee;
+    document.getElementById("date").value = date;
+    console.log("📋 Champs remplis automatiquement. Attente de la soumission manuelle...");
+}
+
 if (document.readyState === "complete" || document.readyState === "interactive") {
-    console.log("✅ DOM était déjà chargé, exécution immédiate !");
+    console.log("✅ DOM déjà chargé, exécution immédiate !");
     initCovoiturage();
 } else {
     document.addEventListener("DOMContentLoaded", () => {
-        console.log("🚀 DOM complètement chargé via `DOMContentLoaded` !");
+        console.log("🚀 DOM complètement chargé !");
         initCovoiturage();
     });
 }
 
-// ✅ Fonction principale
 function initCovoiturage() {
     console.log("🎯 Initialisation de la page Covoiturage...");
 
-    // Sélection du formulaire et bouton
     const searchForm = document.getElementById("search-form");
     const searchButton = searchForm?.querySelector('button[type="submit"]');
 
     if (!searchForm) {
-        console.error("❌ ERREUR : Formulaire introuvable !");
+        console.error("❌ Formulaire introuvable !");
         return;
     }
-    console.log("✔️ Formulaire détecté :", searchForm);
-
     if (!searchButton) {
-        console.error("❌ ERREUR : Bouton 'Rechercher' introuvable !");
+        console.error("❌ Bouton 'Rechercher' introuvable !");
         return;
     }
-    console.log("✔️ Bouton 'Rechercher' détecté :", searchButton);
 
-    // 🚀 Debug : Capture du clic sur le bouton
-    searchButton.addEventListener("click", function () {
-        console.log("🖱️ Clic détecté sur le bouton Rechercher !");
+    searchButton.addEventListener("click", () => {
+        console.log("🖱️ Clic sur le bouton Rechercher !");
     });
 
-    // ✅ Écoute de l'événement `submit` pour empêcher le rechargement de la page
     searchForm.addEventListener("submit", async function (event) {
-        event.preventDefault(); // ⚠️ Empêche le rechargement
-        console.log("🔄 Formulaire soumis, récupération des valeurs...");
+        event.preventDefault();
+        console.log("🔄 Soumission du formulaire...");
 
-        // 📌 Récupération des valeurs du formulaire
-        const depart = document.getElementById("depart")?.value.trim();
-        const arrivee = document.getElementById("arrivee")?.value.trim();
-        const date = document.getElementById("date")?.value.trim();
-
-        console.log(`📡 Départ: ${depart}, Arrivée: ${arrivee}, Date: ${date}`);
+        const depart = document.getElementById("depart").value.trim();
+        const arrivee = document.getElementById("arrivee").value.trim();
+        const date = document.getElementById("date").value.trim();
 
         if (!depart || !arrivee || !date) {
             console.warn("⚠️ Tous les champs sont obligatoires !");
@@ -55,68 +57,60 @@ function initCovoiturage() {
         }
 
         try {
-            // 📡 Envoi de la requête API
             const url = `http://127.0.0.1:8000/api/covoiturage/search?depart=${encodeURIComponent(depart)}&arrivee=${encodeURIComponent(arrivee)}&date=${encodeURIComponent(date)}`;
             console.log("🚀 Requête envoyée à :", url);
 
-            const response = await fetch(url, {
-                method: "GET",
-                credentials: 'include',
-                headers: {
-                    "Content-Type": "application/json"
-                } 
-              });
-            console.log("📨 Réponse HTTP reçue :", response.status);
-            console.log("🍪 Cookies disponibles :", document.cookie);
-
+            const response = await fetch(url, { method: "GET", credentials: 'include' });
+            console.log("📨 Réponse HTTP :", response.status);
 
             const data = await response.json();
             console.log("📊 Données reçues :", data);
 
-            // 📌 Sélection des sections de résultats
             const resultsSection = document.getElementById("results-section");
             const resultsContainer = document.getElementById("results-container");
             const noResultsSection = document.getElementById("no-results-section");
             const suggestedDate = document.getElementById("suggested-date");
 
-            // 🗑️ Nettoyage de la section résultats
             resultsContainer.innerHTML = "";
 
-            if (response.ok && data.length > 0) {
+            const covoiturages = Array.isArray(data) ? data : Object.values(data);  // Transforme l'objet en tableau
+            console.log("🚀 Données converties :", covoiturages);
+
+            if (response.ok && covoiturages.length > 0) {
                 resultsSection.style.display = "block";
                 noResultsSection.style.display = "none";
+                console.log("✅ Section résultats affichée :", resultsSection.style.display);
 
-                data.forEach(covoiturage => {
+                covoiturages.forEach(covoiturage => {
                     const card = document.createElement("div");
                     card.classList.add("covoiturage-card");
 
                     card.innerHTML = `
-                        <div class="covoiturage-card">
-                            <div class="chauffeur">
-                                <img src="${covoiturage.chauffeur.photo ? `data:image/jpeg;base64,${covoiturage.chauffeur.photo}` : 'default-avatar.png'}" alt="Photo du chauffeur" class="chauffeur-photo">
-                                <p><strong>${covoiturage.chauffeur.pseudo}</strong></p>
-                                <p>⭐ Note : ${covoiturage.chauffeur.note}/5</p>
-                            </div>
-                            <div class="details">
-                                <p>🛑 Départ : <strong>${covoiturage.dateDepart} à ${covoiturage.heureDepart}</strong></p>
-                                <p>🏁 Arrivée : <strong>${covoiturage.dateArrivee} à ${covoiturage.heureArrivee}</strong></p>
-                                <p>🚗 Places restantes : <strong>${covoiturage.placesRestantes}</strong></p>
-                                <p>💰 Prix : <strong>${covoiturage.prix}€</strong></p>
-                                <p>${covoiturage.ecologique ? "🌱 Voyage écologique" : "🚘 Voyage classique"}</p>
-                            </div>
+                        <div class="chauffeur">
+                            <img src="${covoiturage.chauffeur.photo ? `data:image/jpeg;base64,${covoiturage.chauffeur.photo}` : 'default-avatar.png'}" alt="Photo du chauffeur" class="chauffeur-photo">
+                            <p><strong>${covoiturage.chauffeur.pseudo || 'Chauffeur'}</strong></p>
+                            <p>⭐ Note : ${covoiturage.chauffeur.note || 0}/5</p>
+                        </div>
+                        <div class="details">
+                            <p>🛑 Départ : <strong>${covoiturage.dateDepart} à ${covoiturage.heureDepart}</strong></p>
+                            <p>🏁 Arrivée : <strong>${covoiturage.dateArrivee} à ${covoiturage.heureArrivee}</strong></p>
+                            <p>🚗 Places restantes : <strong>${covoiturage.placesRestantes}</strong></p>
+                            <p>💰 Prix : <strong>${covoiturage.prix}€</strong></p>
+                            <p>${covoiturage.ecologique ? "🌱 Voyage écologique" : "🚘 Voyage classique"}</p>
                         </div>
                         <button class="btn-detail" data-id="${covoiturage.id}">Détails</button>
                     `;
                     resultsContainer.appendChild(card);
-
-                    document.addEventListener("click", (event) => {
-                      if (event.target.classList.contains("btn-detail")) {
-                          const covoiturageId = event.target.getAttribute("data-id");
-                          window.location.href = `/detailcovoiturage/${covoiturageId}`;
-                      }
-                  });
-                      
                 });
+
+                // Écouteur de clic unique pour tous les boutons
+                resultsContainer.addEventListener("click", (event) => {
+                    if (event.target.classList.contains("btn-detail")) {
+                        const covoiturageId = event.target.getAttribute("data-id");
+                        window.location.href = `/detailcovoiturage/${covoiturageId}`;
+                    }
+                });
+
             } else {
                 resultsSection.style.display = "none";
                 noResultsSection.style.display = "block";
@@ -126,9 +120,9 @@ function initCovoiturage() {
             console.error("❌ Erreur API :", error);
             alert("❌ Une erreur est survenue : " + error.message);
         }
-      
     });
 }
+
 
 /**************************************************************************
  * [FILTRES] Ajout minimal à la fin de covoiturage.js

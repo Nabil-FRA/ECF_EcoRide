@@ -25,6 +25,12 @@ const getRouteByUrl = (url) => {
 
 
 function getRole() {
+    
+    if (!isConnected()) {
+        // S'il n'est pas connecté, on renvoie un rôle "invité"
+        return "ROLE_GUEST";
+    }
+
     let role = localStorage.getItem("role");
     if (!role) {
         console.warn("⚠️ Rôle absent de localStorage, tentative depuis les cookies...");

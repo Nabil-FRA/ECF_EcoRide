@@ -12011,10 +12011,13 @@ img {
   background-color: #8fd35e; /* Vert clair */
   border-radius: 12px;
   padding: 15px 20px;
+  /* Mise en page horizontale */
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
+  /* Empêche le retour à la ligne */
+  flex-wrap: nowrap;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -12022,7 +12025,14 @@ img {
   display: flex;
   align-items: center;
   gap: 10px;
-  flex: 1;
+  flex: 1; /* Chaque "section" prend une part égale de l'espace */
+}
+
+.search-field {
+  /* Label (strong) au-dessus, input en dessous */
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
 
 .search-section i {
@@ -12065,17 +12075,16 @@ img {
   gap: 5px;
 }
 
-.date-input select,
+.date-input .search-field {
+  flex-direction: column;
+}
+
 .date-input input {
   border: none;
   background: transparent;
   outline: none;
   font-size: 14px;
   color: #333;
-}
-
-.date-input select {
-  cursor: pointer;
 }
 
 .about-section {
