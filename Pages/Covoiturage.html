@@ -1,29 +1,65 @@
-
 <div class="hero-scene text-center text-white"> 
-    <div class="hero-scene-content"> 
-        <h1> Recherchez votre covoiturage</h1>
-    </div>
+  <div class="hero-scene-content"> 
+      <h1> Recherchez votre covoiturage</h1>
+  </div>
 </div>
 
-<section id="search-form">
-  <form id="ride-search-form">
-    <label for="departure">Adresse de départ :</label>
-    <input type="text" id="departure" name="departure" placeholder="Ville de départ" required>
+<!-- Formulaire de recherche -->
+<section id="search-section">
+<form id="search-form">
+    <label for="depart">Ville de départ :</label>
+    <input type="text" id="depart" name="depart" required>
 
-    <label for="arrival">Adresse d'arrivée :</label>
-    <input type="text" id="arrival" name="arrival" placeholder="Ville d'arrivée" required>
+    <label for="arrivee">Ville d'arrivée :</label>
+    <input type="text" id="arrivee" name="arrivee" required>
 
     <label for="date">Date :</label>
     <input type="date" id="date" name="date" required>
 
-    <button type="submit">Rechercher</button>
-  </form>
+    <!-- ✅ Ajout d'un id au bouton pour le repérer facilement -->
+    <button type="submit" id="search-btn">Rechercher</button>
+</form>
 </section>
 
-<!-- Section des résultats -->
-<section id="search-results">
-  <h2>Résultats de recherche</h2>
-  <div id="results-container">
-    <!-- Les résultats dynamiques apparaîtront ici -->
-  </div>
+<!-- Résultats de la recherche -->
+<section id="results-section" style="display: none;">
+<h2>Résultats de la recherche</h2>
+<div id="results-container">
+    <!-- Les résultats seront insérés ici dynamiquement -->
+</div>
+</section>
+
+<!-- Message si aucun résultat -->
+<section id="no-results-section" style="display: none;">
+<h2>Aucun covoiturage disponible</h2>
+<p id="suggested-date"></p>
+</section>
+
+<section id="filter-section" style="display: none;">
+    <h2>Filtres</h2>
+    <form id="filter-form">
+        <div>
+            <label for="ecologique">
+                <input type="checkbox" id="ecologique" name="ecologique" value="1">
+                Voyage écologique
+            </label>
+        </div>
+
+        <div>
+            <label for="prixMax">Prix max :</label>
+            <input type="number" id="prixMax" name="prixMax" min="0" step="0.1" placeholder="Ex: 10.5">
+        </div>
+
+        <div>
+            <label for="dureeMax">Durée max (minutes) :</label>
+            <input type="number" id="dureeMax" name="dureeMax" min="0" step="1" placeholder="Ex: 120">
+        </div>
+
+        <div>
+            <label for="noteMin">Note min :</label>
+            <input type="number" id="noteMin" name="noteMin" min="0" max="5" step="0.1" placeholder="Ex: 4.5">
+        </div>
+
+        <button type="submit">Filtrer</button>
+    </form>
 </section>
