@@ -57,7 +57,7 @@ function initCovoiturage() {
         }
 
         try {
-            const url = `http://127.0.0.1:8000/api/covoiturage/search?depart=${encodeURIComponent(depart)}&arrivee=${encodeURIComponent(arrivee)}&date=${encodeURIComponent(date)}`;
+            const url = `https://ecoride75-c75920cb157e.herokuapp.com/api/covoiturage/search?depart=${encodeURIComponent(depart)}&arrivee=${encodeURIComponent(arrivee)}&date=${encodeURIComponent(date)}`;
             console.log("🚀 Requête envoyée à :", url);
 
             const response = await fetch(url, { method: "GET", credentials: 'include' });
@@ -165,7 +165,7 @@ if (!filterSection || !filterForm || !resultsSection || !resultsContainer) {
         const noteMin = document.getElementById("noteMin").value;
 
         // Construit l'URL pour /api/covoiturage/filter
-        let filterUrl = "http://127.0.0.1:8000/api/covoiturage/filter?";
+        let filterUrl = "https://ecoride75-c75920cb157e.herokuapp.com/api/covoiturage/filter?";
 
         if (ecologique) filterUrl += `ecologique=${ecologique}&`;
         if (prixMax) filterUrl += `prixMax=${prixMax}&`;

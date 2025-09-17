@@ -24,7 +24,7 @@ submitButton.addEventListener("click", async (event) => {
     console.log("📦 Données envoyées à l'API :", requestData);
 
     try {
-        const response = await fetch("http://127.0.0.1:8000/api/register", {
+        const response = await fetch("https://ecoride75-c75920cb157e.herokuapp.com/api/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

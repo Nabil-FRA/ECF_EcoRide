@@ -7,7 +7,7 @@ if (!ADMIN_TOKEN) {
   alert("Vous devez être connecté pour accéder à cette page.");
 } else {
   // 3️⃣ Récupérer la liste des utilisateurs
-  fetch('http://127.0.0.1:8000/api/admin/utilisateurs', {
+  fetch('https://ecoride75-c75920cb157e.herokuapp.com/api/admin/utilisateurs', {
     method: 'GET',
     headers: {
       'Authorization': 'Bearer ' + ADMIN_TOKEN,
@@ -70,7 +70,7 @@ if (!ADMIN_TOKEN) {
           return;
         }
 
-        fetch(`http://127.0.0.1:8000/api/admin/utilisateur/suspend/${user.id}`, {
+        fetch(`https://ecoride75-c75920cb157e.herokuapp.com/api/admin/utilisateur/suspend/${user.id}`, {
           method: 'POST',
           headers: {
             'Authorization': 'Bearer ' + ADMIN_TOKEN,

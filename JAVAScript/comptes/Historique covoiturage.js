@@ -5,7 +5,7 @@ async function fetchHistory() {
 
     try {
         console.log('Envoi de la requête fetch vers l\'API...');
-        const response = await fetch('http://127.0.0.1:8000/mongo/historique_covoiturage');
+        const response = await fetch('https://ecoride75-c75920cb157e.herokuapp.com/mongo/historique_covoiturage');
         console.log('Réponse brute reçue :', response);
 
         if (!response.ok) {
@@ -72,7 +72,7 @@ fetchHistory();
 
 const authToken = localStorage.getItem('accessToken');
 
-fetch('http://127.0.0.1:8000/mongo/confirmation_covoiturage', {
+fetch('https://ecoride75-c75920cb157e.herokuapp.com/mongo/confirmation_covoiturage', {
     method: 'GET',
     headers: new Headers({
         'Authorization': `Bearer ${authToken}`
