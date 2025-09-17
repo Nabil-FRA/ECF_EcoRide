@@ -75,7 +75,7 @@ btnSubmit?.addEventListener('click', async () => {
     try {
         // 1️⃣ **Mettre à jour le statut utilisateur**
         console.log("🚀 Envoi de la requête de mise à jour du statut...");
-        const statusResponse = await fetch("http://127.0.0.1:8000/api/profile/status", {
+        const statusResponse = await fetch("https://ecoride75-c75920cb157e.herokuapp.com/api/profile/status", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -140,7 +140,7 @@ btnSubmit?.addEventListener('click', async () => {
                 preferences
             }));
 
-            const chauffeurResponse = await fetch("http://127.0.0.1:8000/api/profile/register-chauffeur", {
+            const chauffeurResponse = await fetch("https://ecoride75-c75920cb157e.herokuapp.com/api/profile/register-chauffeur", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

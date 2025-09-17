@@ -1,7 +1,7 @@
 /* public/js/stats.js */
 const authToken = localStorage.getItem("accessToken");
 
-fetch("http://127.0.0.1:8000/api/stats", {
+fetch("https://ecoride75-c75920cb157e.herokuapp.com/api/stats", {
     method: "GET",
     headers: {
         "Authorization": `Bearer ${authToken}`,

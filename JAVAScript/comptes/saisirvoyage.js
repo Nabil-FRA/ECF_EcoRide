@@ -26,7 +26,7 @@ myHeaders.append("Content-Type", "application/json");
 // 🚗 Récupération des voitures de l'utilisateur
 console.log("📡 Envoi de la requête pour récupérer les voitures...");
 
-fetch("http://127.0.0.1:8000/api/voitures/utilisateur", {
+fetch("https://ecoride75-c75920cb157e.herokuapp.com/api/voitures/utilisateur", {
     method: "GET",
     headers: myHeaders,
     redirect: "follow"
@@ -87,7 +87,7 @@ form.addEventListener("submit", (event) => {
 
     console.log("📤 Envoi des données de création de covoiturage :", formData);
 
-    fetch("http://127.0.0.1:8000/api/covoiturage/creer", {
+    fetch("https://ecoride75-c75920cb157e.herokuapp.com/api/covoiturage/creer", {
         method: "POST",
         headers: myHeaders,
         body: JSON.stringify(formData),

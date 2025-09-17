@@ -117,7 +117,7 @@ async function submitForm() {
 
     try {
         // Envoyer la requête à l'API
-        const response = await fetch("http://127.0.0.1:8000/api/register", requestOptions);
+        const response = await fetch("https://ecoride75-c75920cb157e.herokuapp.com/api/register", requestOptions);
 
         if (response.ok) {
             const result = await response.json(); // Utilisation de JSON si la réponse est au format JSON

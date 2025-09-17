@@ -8,7 +8,7 @@ if (!covoiturageId) {
 }
 
 // Construire l'URL de l'API avec l'ID
-const url = `http://127.0.0.1:8000/api/covoiturage/details/${covoiturageId}`;
+const url = `https://ecoride75-c75920cb157e.herokuapp.com/api/covoiturage/details/${covoiturageId}`;
 console.log(`🔍 Récupération des détails pour le covoiturage ID: ${covoiturageId}`);
 
 fetch(url, {
@@ -80,7 +80,7 @@ document.getElementById('btnParticiper').addEventListener('click', function() {
       };
 
       console.log('Envoi de la requête fetch...');
-      fetch(`http://127.0.0.1:8000/api/covoiturage/${covoiturageId}/participer?confirm=true`, requestOptions)
+      fetch(`https://ecoride75-c75920cb157e.herokuapp.com/api/covoiturage/${covoiturageId}/participer?confirm=true`, requestOptions)
           .then(response => {
               console.log('Réponse reçue :', response);
               return response.json();
