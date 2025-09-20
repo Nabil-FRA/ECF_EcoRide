@@ -1,0 +1,20 @@
+
+
+services:
+  # Nom du service, vous pouvez l'appeler comme vous voulez
+  frontend:
+    # Construit l'image à partir du Dockerfile dans le dossier actuel
+    build: .
+    # Nom de l'image qui sera créée
+    image: ecoride-frontend
+    # Nom du conteneur
+    container_name: ecoride-frontend-container
+    # Mappe le port 3000 de votre machine au port 3000 du conteneur
+    ports:
+       - "3000:5173"
+    # Monte les volumes pour le rechargement à chaud (live reloading)
+    volumes:
+      # Synchronise votre code local avec le code dans le conteneur
+      - .:/app
+      # Astuce : Empêche le dossier node_modules local de remplacer celui du conteneur
+      - /app/node_modules

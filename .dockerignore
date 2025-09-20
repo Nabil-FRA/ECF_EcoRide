@@ -1,0 +1,15 @@
+# Dépendances et logs
+node_modules
+npm-debug.log
+
+# Dossiers de build (à adapter si besoin)
+dist
+build
+
+# Fichiers d'environnement locaux
+.env
+.env.local
+
+# Fichiers de configuration IDE
+.vscode
+.idea
