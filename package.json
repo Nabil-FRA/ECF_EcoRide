@@ -1,7 +1,16 @@
 {
+  "name": "ecoride-frontend",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "npx vite --host"
+  },
   "dependencies": {
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
     "chart.js": "^4.4.7"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
   }
 }
