@@ -1,13 +1,13 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const container = document.getElementById('mes-covoiturages-container');
-    const authToken = localStorage.getItem('accessToken');
 
-    if (!authToken) {
-        container.innerHTML = '<p>Veuillez vous connecter pour voir vos covoiturages.</p>';
-        return;
-    }
 
-    // --- ÉTAPE 1 : AFFICHER LES COVOITURAGES ---
+const container = document.getElementById('mes-covoiturages-container');
+const authToken = localStorage.getItem('accessToken');
+
+if (!authToken) {
+    container.innerHTML = '<p>Veuillez vous connecter pour voir vos covoiturages.</p>';
+    
+} else {
+    
     fetch('https://ecoride75-c75920cb157e.herokuapp.com/api/covoiturage/mes-covoiturages', {
         headers: {
             'Authorization': `Bearer ${authToken}`
@@ -40,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <tbody>`;
 
         data.forEach(covoit => {
-            // On ajoute des classes CSS pour pouvoir sélectionner les cellules plus facilement
             tableHTML += `
                 <tr id="covoit-row-${covoit.id}">
                     <td>${covoit.lieuDepart}</td>
@@ -84,24 +83,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (response.ok) {
                     alert(result.message);
                     
-                    // NOUVELLE LOGIQUE : On vérifie la réponse de l'API
-                    // Si l'API nous renvoie un covoiturage avec le statut "annulé", c'est que le chauffeur a annulé.
                     if (result.covoiturage && result.covoiturage.statut === 'annulé') {
                         const row = document.getElementById(`covoit-row-${covoiturageId}`);
                         if (row) {
                             const statutCell = row.querySelector('.statut-cell');
                             const actionCell = row.querySelector('.action-cell');
                             
-                            // On met à jour la cellule du statut
                             statutCell.textContent = 'annulé';
                             statutCell.style.color = 'red';
                             statutCell.style.fontWeight = 'bold';
                             
-                            // On vide la cellule d'action (supprime le bouton)
                             actionCell.innerHTML = '';
                         }
                     } else {
-                        // Sinon, c'est un passager qui a annulé, on supprime la ligne.
                         document.getElementById(`covoit-row-${covoiturageId}`).remove();
                     }
                 } else {
@@ -113,4 +107,5 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
-});
+} 
+
